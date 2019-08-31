@@ -1,0 +1,10 @@
+ol {
+  list-style-type: none;
+  padding-left: 0;
+  counter-reset: elementcounter;
+}
+
+li:before {
+  content: "Week " counter(elementcounter) ". ";
+  counter-increment: elementcounter;
+}
