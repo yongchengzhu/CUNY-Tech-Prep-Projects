@@ -1,8 +1,32 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu {
+  background-color: black;
+}
+
+.title-container {
+  background-image: url('../img/milkbg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 30rem;
+}
+
+.title {
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
 img {
   width: 100%;
   border-radius: 100%;
 }
 
-.container {
+.container-fluid {
   text-align: center;
+  padding: 0 !important;
 }
