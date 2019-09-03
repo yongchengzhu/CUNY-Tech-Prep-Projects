@@ -28,6 +28,10 @@ body {
   padding: 4.5rem 4.5rem;
 }
 
+.main {
+  margin: 1rem 0;
+}
+
 img {
   /* width: 100%; */
   border-radius: 100%;
@@ -42,6 +46,14 @@ img {
   margin: 1.5rem 0;
 }
 
+.cookie-container {
+  margin: 1rem 0;
+}
+
+.cookie-type {
+  display: inline;
+}
+
 .new {
   font-weight: bold;
   background-color: red;
@@ -52,6 +64,7 @@ img {
 
 .section {
   padding: 1rem 1rem !important;
+  text-align: center;
 }
 
 #about {
