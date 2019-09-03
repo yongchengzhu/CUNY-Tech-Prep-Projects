@@ -5,6 +5,7 @@ body {
 
 .nav-menu {
   background-color: black;
+  color: lightgrey;
 }
 
 .title-container {
@@ -35,4 +36,33 @@ img {
 .container-fluid {
   text-align: center;
   padding: 0 !important;
+}
+
+.sub-title {
+  margin: 1.5rem 0;
+}
+
+.new {
+  font-weight: bold;
+  background-color: red;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.2rem;
+}
+
+.section {
+  padding: 1rem 1rem !important;
+}
+
+#about {
+  background-color: lightgrey;
+}
+
+#contact {
+  background-color: deepskyblue;
+  color: white;
+}
+
+.desc {
+  text-align: left;
 }
