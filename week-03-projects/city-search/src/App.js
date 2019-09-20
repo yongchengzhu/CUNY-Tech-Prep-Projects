@@ -14,7 +14,20 @@ class App extends React.Component {
   fetchZipcodes = async city => {
     const response = await fetch(`http://ctp-zip-api.herokuapp.com/city/${city}`);
     const json     = await response.json();
-    this.setState({ zipcodes: json });
+    
+    const zipcodes = await Promise.all(json.map(async zipcode => {
+      const state = await this.fetchState(zipcode);
+
+      return ({ zipcode: zipcode, state: state });
+    }));
+
+    this.setState({ zipcodes: zipcodes });
+  }
+
+  fetchState = async zipcode => {
+    const response = await fetch(`http://ctp-zip-api.herokuapp.com/zip/${zipcode}`);
+    const json     = await response.json();
+    return json[0].State;
   }
 
   render() {
@@ -22,7 +35,7 @@ class App extends React.Component {
       <div>
         <Header />
         <Searchbar fetchZipcodes={this.fetchZipcodes} />
-        <Results />
+        <Results zipcodes={this.state.zipcodes} />
       </div>
     );
   }

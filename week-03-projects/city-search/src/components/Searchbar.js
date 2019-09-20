@@ -10,12 +10,22 @@ class Searchbar extends React.Component {
     this.setState({ searchValue: event.target.value.toUpperCase() });
   }
 
+  handleKeyPress = event => {
+    if (event.key === 'Enter') {
+      this.props.fetchZipcodes(this.state.searchValue);
+    }
+  }
+
   render() {
-    console.log(this.state.searchValue);
     return (
       <div className="searchbar">
         <strong>City:</strong>
-        <input type="text" placeholder="Enter a City" onChange={this.handleChange} />
+        <input 
+          type="text" 
+          placeholder="Enter a City" 
+          onChange={this.handleChange} 
+          onKeyPress={this.handleKeyPress}
+        />
       </div>
     );
   }
