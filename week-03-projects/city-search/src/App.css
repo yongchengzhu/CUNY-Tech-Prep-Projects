@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+}
+
+.header {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 2rem;
+}
+
+.searchbar {
+  margin: 1rem;
+}
+
+.results {
+  margin: 1rem;
+}

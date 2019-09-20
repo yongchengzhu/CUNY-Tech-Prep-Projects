@@ -5,34 +5,16 @@ class City extends React.Component {
     super(props);
   }
 
-  renderCities = () => {
-    if (!this.props.cities.length) {
-      return <p>No Results</p>
-    }
-
-    return (
-      <div>
-        {
-          this.props.cities.map(city => {
-            return (
-              <div>
-                <div>{city.City}, {city.State}</div>
-                <li>State: {city.State}</li>
-                <li>Location: ({city.Lat}, {city.Long})</li>
-                <li>Population (estimated): {city.EstimatedPopulation}</li>
-                <li>Total Wages: {city.TotalWages}</li>
-              </div>
-            )
-          })
-        }
-      </div>
-    );
-  }
-
   render() {
     return (
-      <div>
-        { this.renderCities() }
+      <div className="city">
+        <div className="city-title">{this.props.city}, {this.props.state}</div>
+        <ul className="cities">
+          <li>State: {this.props.state}</li>
+          <li>Location: ({this.props.lat}, {this.props.long})</li>
+          <li>Population (estimated): {this.props.population}</li>
+          <li>Total Wages: {this.props.wages}</li>
+        </ul>
       </div>
     );
   }

@@ -12,21 +12,58 @@ class App extends Component {
   }
 
   fetchCities = async zipcode => {
-    const response = await fetch(`http://ctp-zip-api.herokuapp.com/zip/${zipcode}`);
-    const json     = await response.json();
-    this.setState({ cities: json });
+    if (zipcode.length !== 5) {
+      this.setState({ cities: [] });
+      return;
+    }
+
+    try {
+      const response = await fetch(`http://ctp-zip-api.herokuapp.com/zip/${zipcode}`);
+      const json     = await response.json();
+      this.setState({ cities: json });
+    } catch(err) {
+      this.setState({ cities: [] });
+    }
+  }
+
+  renderCities = () => {
+    if (!this.state.cities.length) return <div>No Results</div>
+
+    return (
+      <div>
+        { 
+          this.state.cities.map(city => {
+            return (
+              <City 
+                city={city.City}
+                state={city.State}
+                lat={city.Lat}
+                long={city.Long}
+                population={city.EstimatedPopulation}
+                wages={city.TotalWages}
+              />
+            );
+          })
+        }
+      </div>
+    );
   }
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Zip Code Search</h2>
-        </div>
-        <div className="main">
-          <ZipSearchField fetchCities={ this.fetchCities } />
-          <div>
-            <City cities={ this.state.cities } />
+      <div className="App container">
+        <div className="row">
+          <div className="col">
+            <div className="App-header">
+              <h2>Zip Code Search</h2>
+            </div>
+            
+            <div className="main row justify-content-center">
+              <div className="col-10 col-md-4">
+                <ZipSearchField fetchCities={ this.fetchCities } />
+                { this.renderCities() }
+              </div>
+            </div>
           </div>
         </div>
       </div>

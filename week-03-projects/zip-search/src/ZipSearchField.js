@@ -19,13 +19,19 @@ class ZipSearchField extends React.Component {
   render() {
     return (
       <div>
-        Zipcode: 
-        <input 
-          type="text" 
-          placeholder="Try 10016"
-          onChange={this.handleChange} 
-          onKeyPress={this.handleKeyPress} 
-        />
+        <div className="form-group row">
+          <label className="label col-form-label col-3" for="zipcode">Zipcode: </label>
+          <div className="col-9">
+            <input 
+              id="zipcode"
+              className="form-control"
+              type="text" 
+              placeholder="Try 10016"
+              onChange={this.handleChange} 
+              onKeyPress={this.handleKeyPress} 
+            />
+          </div>
+        </div>
       </div>
     );
   }
