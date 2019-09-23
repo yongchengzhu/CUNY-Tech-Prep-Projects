@@ -18,14 +18,19 @@ class Searchbar extends React.Component {
 
   render() {
     return (
-      <div className="searchbar">
-        <strong>City:</strong>
-        <input 
-          type="text" 
-          placeholder="Enter a City" 
-          onChange={this.handleChange} 
-          onKeyPress={this.handleKeyPress}
-        />
+      <div className="row">
+        <div className="col s12 m6 offset-s2 offset-m4">
+          <div className="searchbar input-field inline">
+            <label htmlFor="searchbar-input">City</label>
+            <input 
+              type="text"
+              id="searchbar-input"
+              onChange={this.handleChange} 
+              onKeyPress={this.handleKeyPress}
+            />
+          </div>
+          <button className="btn blue-grey darken-4">Search</button>
+        </div>
       </div>
     );
   }
